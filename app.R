@@ -82,21 +82,24 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"),
                                      h4("Options"),
                                      radioButtons('Q1', 'I have a',
                                                   c("dataset only",
-                                                    "partial study",
-                                                    "full study",
+                                                    "minor or partial study",
+                                                    "full-scale study",
                                                     "rejected manuscript")),
                                      radioButtons('Q2', 'Money I have to cover publication cost (in €)',
                                                  c("0",
                                                    "up to 500",
                                                    "up to 2000"), selected = "up to 2000"),
-                                     radioButtons('Q3', 'I want the outcome to be indexed in',
+                                     checkboxGroupInput('Q3', 'I want the outcome to be indexed in',
                                                   c("Pubmed",
                                                     "Google scholar",
                                                     "Google"), selected = "Google"),
-                                     radioButtons('Q4', 'I have my outcome to be peer-reviewed',
+                                     radioButtons('Q4', 'I want my outcome to be peer-reviewed',
                                                   c("any",
                                                     "yes",
                                                     "no")),
+                                     radioButtons('Q5', 'I want my publication or dataset to appear immediately',
+                                                  c("yes",
+                                                    "no"), selected = "no"),
 
 
                                      helpText('Choose the scenario that best reflects your case.')
@@ -150,7 +153,7 @@ server <- function(input, output) {
                     info=F),
       escape = FALSE
     ) %>%   formatStyle(
-      set_chosen_columns_2(null_results_table, input$Q1, input$Q2, input$Q3, input$Q4),
+      set_chosen_columns_2(null_results_table, input$Q1, input$Q2, input$Q3, input$Q4, input$Q5),
       color = '#FFFFFF',
       backgroundColor = '#2C3E50'
     )
