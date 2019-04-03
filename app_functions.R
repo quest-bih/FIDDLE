@@ -46,16 +46,16 @@ set_chosen_columns_2 <- function(table, Q1, Q2, Q3, Q4, Q5)
 
   Q1_sel = NULL
   switch(Q1,
-         "dataset only" = {Q1_sel = c(1, 4)},
-         "minor or partial study" = {Q1_sel = c(2)},
-         "full-scale study" = {Q1_sel = c(3, 5, 6)},
+         "unanalyzed dataset" = {Q1_sel = c(1, 4)},
+         "stand-alone finding or results from a small study" = {Q1_sel = c(2)},
+         "results from a full-scale study" = {Q1_sel = c(3, 5, 6)},
          "rejected manuscript" = {Q1_sel = c(2, 3, 5, 6)}
   )
 
   Q2_sel = NULL
   switch(Q2,
-         "0" = {Q2_sel = c(1, 2, 3)},
-         "up to 500" = {Q2_sel = c(1, 2, 3, 5)},
+         "0" = {Q2_sel = c(1, 3)},
+         "up to 1000" = {Q2_sel = c(1, 2, 3, 5)},
          "up to 2000" = {Q2_sel = c(1, 2, 3, 4, 5, 6)}
   )
 
