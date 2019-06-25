@@ -1,6 +1,6 @@
-#This shiny app displays the Open Access Journal Whitelist in a
-#searchable and filterable format in the browser using the datatable package
-#
+#This is the Shiny app for the FIDDLE tool, which is a “matchmaking” tool
+#designed to help researchers to identify the publication format that will
+#work best for a particular dataset that may be hard to publish in traditional journals
 
 library(shiny)
 library(DT)
@@ -12,17 +12,12 @@ library(lubridate)
 
 source("app_functions.R", encoding = "UTF-8")
 
-null_results_table <- read_delim("data/Table_3.csv", delim = ";")
+null_results_table <- read_delim("data/Table.csv", delim = ";")
 null_results_table <- as.matrix(null_results_table)
 rownames(null_results_table) <- null_results_table[,1]
 null_results_table <- null_results_table[,-1]
-#null_results_table <- as_tibble(cbind(nms = names(null_results_table), t(null_results_table)))
 
-
-#color = '#FFFFFF',
-#backgroundColor = '#2C3E50'
-
-url <- "https://twitter.com/intent/tweet?text=Where%20and%20how%20to%20publish%20null%20results%3f&url=http://s-quest.bihealth.org:3838/fiddle/"
+url_twitter <- "https://twitter.com/intent/tweet?text=Where%20and%20how%20to%20publish%20null%20results%3f&url=http://s-quest.bihealth.org:3838/fiddle/"
 
 ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
@@ -43,10 +38,6 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                                   Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
                                                   The tool will highlight the most suitable options.</b>"),
                                              align = "center"),
-                                   #wellPanel(HTML("<font color=\"#FFFFFF\">This tool provides information on different ways of publishing results that are
-                                    #       either considered null results or only comprise a dataset instead of a full study. Select options that best
-                                    #       reflect your case and corresponding publishing possibilities then appear highlighted.</font>"),
-                                    #         align = "center", style = "background: #2C3E50"),
                                    br()
                             )),
                           fluidRow(
@@ -78,7 +69,7 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                      helpText('If these options aren’t helpful, try our list of scenarios instead:'),
                                      actionButton('buttonToScenarios', 'Go to scenarios')
                                    ),
-                                   tags$a(href=url, "Tweet", class="twitter-share-button"),
+                                   tags$a(href=url_twitter, "Tweet", class="twitter-share-button"),
                                    includeScript("http://platform.twitter.com/widgets.js")
 
 
@@ -134,11 +125,19 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                      helpText('Go back to the options version: '),
                                     actionButton('buttonToOptions', 'Back to options')
                                    ),
-                                   tags$a(href=url, "Tweet", class="twitter-share-button"),
+                                   tags$a(href=url_twitter, "Tweet", class="twitter-share-button"),
                                    includeScript("http://platform.twitter.com/widgets.js")
                             ),
                             column(9,
-                                   DT::dataTableOutput("table")
+                                   DT::dataTableOutput("table"),
+
+                                   br(),
+
+                                   helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
+                                            visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
+                                   helpText('Bernard, René (concept); Bobrov, Evgeny (concept); Riedel, Nico (concept, technical implementation; Weissgerber, Tracey (concept)'),
+                                   helpText('Contact address:'),
+                                   helpText('Last update: 25.06.2019')
                             )
                           )
                  )
@@ -151,6 +150,7 @@ server <- function(input, output, session) {
   # Code for Table
   #--------------------------------------------------------------------------------------------------
 
+  #options table
   output$table <- DT::renderDataTable({
     DT::datatable(null_results_table, #class = 'cell-border stripe',
                   options = list(
@@ -171,6 +171,7 @@ server <- function(input, output, session) {
   })
 
 
+  #scenarios table
   output$table2 <- DT::renderDataTable({
     DT::datatable(null_results_table,
                   options = list(
@@ -191,7 +192,7 @@ server <- function(input, output, session) {
   })
 
 
-  #actionButton to switch tabs ()
+  #actionButton to switch tabs
   observeEvent(input$buttonToScenarios, {
     updateTabsetPanel(session, "navbarTabs",
                       selected = "tabScenarios")
@@ -202,7 +203,6 @@ server <- function(input, output, session) {
                       selected = "tabOptions")
   })
 
-  #write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)

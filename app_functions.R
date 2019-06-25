@@ -1,3 +1,4 @@
+#functions used to select the right publication venues for the given options/scenarios
 
 #set up table with right highlighting for the chosen options
 set_chosen_columns <- function(table, option)
@@ -40,6 +41,7 @@ set_chosen_columns_num <- function(table, option)
   return(col_chosen)
 }
 
+#map chosen options to publication venues
 set_chosen_columns_2 <- function(table, Q1, Q2, Q3, Q4, Q5)
 {
   tab_col <- colnames(table)
