@@ -6,15 +6,15 @@ set_chosen_columns <- function(table, option)
 
   col_chosen = NULL
   switch(option,
-         "1. I don't have enough time to prepare a publication" = {col_chosen = c(tab_col[1], tab_col[2])},
-         "2. My experiment or dataset is incomplete" = {col_chosen = tab_col[2]},
-         "3. I have data that may be useful to others, but don't have time to analyze everything" = {col_chosen = c(tab_col[1], tab_col[2], tab_col[4])},
-         "4. I have neutral or null results from a small, underpowered study or an exploratory study" = {col_chosen = c(tab_col[2], tab_col[3])},
-         "5. I have neutral or null results from a large, adequately powered study" = {col_chosen = c(tab_col[5], tab_col[6])},
-         "6. My study is completed, but the findings aren't novel or exciting" = {col_chosen = c(tab_col[1], tab_col[3], tab_col[4], tab_col[5], tab_col[6])},
-         "7. I need the research to be published quickly" = {col_chosen = c(tab_col[1], tab_col[3])},
-         "8. I don't have funding to pay for publication charges" = {col_chosen = c(tab_col[1], tab_col[2], tab_col[3])},
-         "9. None of these describe my situation - show me the table of all options"  = {col_chosen = NULL}
+         "I don't have enough time to prepare a publication" = {col_chosen = c(tab_col[1], tab_col[2])},
+         "My experiment or dataset is incomplete" = {col_chosen = c(tab_col[1], tab_col[2])},
+         "I have data that may be useful to others, but don't have time to analyze everything" = {col_chosen = c(tab_col[1], tab_col[2], tab_col[4])},
+         "I have neutral or null results from a small, underpowered study or an exploratory study" = {col_chosen = c(tab_col[2], tab_col[3])},
+         "I have neutral or null results from a large, adequately powered study" = {col_chosen = c(tab_col[5], tab_col[6])},
+         "My study is completed, but the findings aren't novel or exciting" = {col_chosen = c(tab_col[1], tab_col[3], tab_col[4], tab_col[5], tab_col[6])},
+         "I need the research to be published quickly" = {col_chosen = c(tab_col[1], tab_col[3])},
+         "I don't have funding to pay for publication charges" = {col_chosen = c(tab_col[1], tab_col[3])},
+         "None of these describe my situation - show me the table of all options"  = {col_chosen = NULL}
   )
 
   return(col_chosen)
@@ -26,15 +26,15 @@ set_chosen_columns_num <- function(table, option)
 
   col_chosen = NULL
   switch(option,
-         "1. I don't have enough time to prepare a publication" = {col_chosen = c(1, 2)},
-         "2. My experiment or dataset is incomplete" = {col_chosen = 2},
-         "3. I have data that may be useful to others, but don't have time to analyze everything" = {col_chosen = c(1, 2, 4)},
-         "4. I have neutral or null results from a small, underpowered study or an exploratory study" = {col_chosen = c(2, 3)},
-         "5. I have neutral or null results from a large, adequately powered study" = {col_chosen = c(5, 6)},
-         "6. My study is completed, but the findings aren't novel or exciting" = {col_chosen = c(1, 3, 4, 5, 6)},
-         "7. I need the research to be published quickly" = {col_chosen = c(1, 3)},
-         "8. I don't have funding to pay for publication charges" = {col_chosen = c(1, 2, 3)},
-         "9. None of these describe my situation - show me the table of all options"  = {col_chosen = NULL}
+         "I don't have enough time to prepare a publication" = {col_chosen = c(1, 2)},
+         "My experiment or dataset is incomplete" = {col_chosen = 2},
+         "I have data that may be useful to others, but don't have time to analyze everything" = {col_chosen = c(1, 2, 4)},
+         "I have neutral or null results from a small, underpowered study or an exploratory study" = {col_chosen = c(2, 3)},
+         "I have neutral or null results from a large, adequately powered study" = {col_chosen = c(5, 6)},
+         "My study is completed, but the findings aren't novel or exciting" = {col_chosen = c(1, 3, 4, 5, 6)},
+         "I need the research to be published quickly" = {col_chosen = c(1, 3)},
+         "I don't have funding to pay for publication charges" = {col_chosen = c(1, 2, 3)},
+         "None of these describe my situation - show me the table of all options"  = {col_chosen = NULL}
   )
 
   return(col_chosen)

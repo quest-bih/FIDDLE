@@ -28,7 +28,7 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/de/forschung/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://bihealth.org/quest-center/")
                             ),
                             column(width = 9,
                                    h1(HTML("FIDDLE - <font color=\"#AA1C7D\"><b> Fi</b></font>le
@@ -38,10 +38,10 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                            <font color=\"#AA1C7D\"><b> E</b></font>ffort"), align = "center"),
                                    h4("Where and how to publish null / neutral results?", align = "center"),
                                    br(),
-                                   wellPanel(HTML("<b>You would like to publish research outcomes which do not fit into the regular publication pipeline?
-                                                  FIDDLE provides guidance on publishing outcomes like null results or unanalyzed datasets, which all too
-                                                  often end up in the file drawer. Choose the options that are most important to you to find the most suitable
-                                                  publishing venue.</b>"),
+                                   wellPanel(HTML("<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
+                                                  that is often difficult to publish in traditional journals (i.e. null or neutral results, datasets, etc.).
+                                                  Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
+                                                  The tool will highlight the most suitable options.</b>"),
                                              align = "center"),
                                    #wellPanel(HTML("<font color=\"#FFFFFF\">This tool provides information on different ways of publishing results that are
                                     #       either considered null results or only comprise a dataset instead of a full study. Select options that best
@@ -53,6 +53,7 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                             column(3,
                                    wellPanel(
                                      h4("Options"),
+                                     helpText('Choose the criteria that are most important to you.'),
                                      radioButtons('Q1', 'I have a',
                                                   c("unanalyzed dataset",
                                                     "stand-alone finding or results from a small study",
@@ -74,55 +75,63 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                                   c("yes",
                                                     "no"), selected = "no"),
 
-
-                                     helpText('Choose the options that best reflects your case.
-                                              None of these above option are helpful?
-                                              Try to our scenario approach:'),
+                                     helpText('If these options aren’t helpful, try our list of scenarios instead:'),
                                      actionButton('buttonToScenarios', 'Go to scenarios')
                                    ),
                                    tags$a(href=url, "Tweet", class="twitter-share-button"),
                                    includeScript("http://platform.twitter.com/widgets.js")
+
+
                             ),
                             column(9,
-                                   DT::dataTableOutput("table2")
+                                   DT::dataTableOutput("table2"),
+
+                                   br(),
+
+                                   helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
+                                            visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
+                                   helpText('Bernard, René (concept); Bobrov, Evgeny (concept); Riedel, Nico (concept, technical implementation; Weissgerber, Tracey (concept)'),
+                                   helpText('Contact address:'),
+                                   helpText('Last update: 25.06.2019')
                             )
                           )
                  ),
                  tabPanel("Scenarios", value = "tabScenarios",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/de/forschung/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://bihealth.org/quest-center/")
                             ),
                             column(width = 9,
-                                   h1("FIDDLE - Fi*le *D*rawer *D*ata *L*iberation *E*ffort", align = "center"),
+                                   h1(HTML("FIDDLE - <font color=\"#AA1C7D\"><b> Fi</b></font>le
+                                           <font color=\"#AA1C7D\"><b> D</b></font>rawer
+                                           <font color=\"#AA1C7D\"><b> D</b></font>ata
+                                           <font color=\"#AA1C7D\"><b> L</b></font>iberation
+                                           <font color=\"#AA1C7D\"><b> E</b></font>ffort"), align = "center"),
                                    h4("Where and how to publish null / neutral results?", align = "center"),
                                    br(),
-                                   wellPanel("This tool provides information on different ways of publishing results that are
-                                      either considered null results or only comprise a dataset instead of a full study.
-                                      Choose a scenario that best reflects your case or the options that are most important
-                                      to you. The most suitable options are then highlighted.", align = "center"),
+                                   wellPanel(HTML("<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
+                                                  that is often difficult to publish in traditional journals (i.e. null or neutral results, datasets, etc.).
+                                                  Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
+                                                  The tool will highlight the most suitable options.</b>"),
+                                             align = "center"),
                                    br()
                             )),
                           fluidRow(
                             column(3,
-                                   wellPanel("This tool provides information on different ways of publishing results that are
-                                      either considered null results or only comprise a dataset instead of a full study.
-                                      Choose a scenario that best reflects your case or the options that are most important
-                                      to you. The most suitable options are then highlighted."),
                                    wellPanel(
                                      h4("Why are your data in the file drawer?"),
-                                    radioButtons('scenario', 'Scenarios',
-                                                 c("1. I don't have enough time to prepare a publication",
-                                                   "2. My experiment or dataset is incomplete",
-                                                   "3. I have data that may be useful to others, but don't have time to analyze everything",
-                                                   "4. I have neutral or null results from a small, underpowered study or an exploratory study",
-                                                   "5. I have neutral or null results from a large, adequately powered study",
-                                                   "6. My study is completed, but the findings aren't novel or exciting",
-                                                   "7. I need the research to be published quickly",
-                                                   "8. I don't have funding to pay for publication charges",
-                                                   "9. None of these describe my situation - show me the table of all options"),
-                                                 selected = "9. None of these describe my situation - show me the table of all options"),
-                                     helpText('Choose the scenario that best reflects your case. Go back to the options version: '),
+                                     radioButtons('scenario', 'Scenarios',
+                                                 c("I don't have enough time to prepare a publication",
+                                                   "My experiment or dataset is incomplete",
+                                                   "I have data that may be useful to others, but don't have time to analyze everything",
+                                                   "I have neutral or null results from a small, underpowered study or an exploratory study",
+                                                   "I have neutral or null results from a large, adequately powered study",
+                                                   "My study is completed, but the findings aren't novel or exciting",
+                                                   "I need the research to be published quickly",
+                                                   "I don't have funding to pay for publication charges",
+                                                   "None of these describe my situation - show me the table of all options"),
+                                                 selected = "None of these describe my situation - show me the table of all options"),
+                                     helpText('Go back to the options version: '),
                                     actionButton('buttonToOptions', 'Back to options')
                                    ),
                                    tags$a(href=url, "Tweet", class="twitter-share-button"),
@@ -193,7 +202,7 @@ server <- function(input, output, session) {
                       selected = "tabOptions")
   })
 
-  write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
+  #write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)
