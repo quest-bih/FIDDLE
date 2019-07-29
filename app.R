@@ -19,24 +19,24 @@ null_results_table <- null_results_table[,-1]
 
 url_twitter <- "https://twitter.com/intent/tweet?text=Where%20and%20how%20to%20publish%20null%20results%3f&url=http://s-quest.bihealth.org:3838/fiddle/"
 
-ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
+ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://bihealth.org/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
                             ),
                             column(width = 9,
-                                   h1(HTML("FIDDLE - <font color=\"#AA1C7D\"><b> Fi</b></font>le
-                                           <font color=\"#AA1C7D\"><b> D</b></font>rawer
-                                           <font color=\"#AA1C7D\"><b> D</b></font>ata
-                                           <font color=\"#AA1C7D\"><b> L</b></font>iberation
-                                           <font color=\"#AA1C7D\"><b> E</b></font>ffort"), align = "center"),
+                                   h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
+                                           <font color=\"#AA1C7D\"><b> d</b></font>rawer
+                                           <font color=\"#AA1C7D\"><b> d</b></font>ata
+                                           <font color=\"#AA1C7D\"><b> l</b></font>iberation
+                                           <font color=\"#AA1C7D\"><b> e</b></font>ffort"), align = "center"),
                                    h4("Where and how to publish null / neutral results?", align = "center"),
                                    br(),
-                                   wellPanel(HTML("<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
+                                   wellPanel(HTML('<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
                                                   that is often difficult to publish in traditional journals (i.e. null or neutral results, datasets, etc.).
                                                   Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
-                                                  The tool will highlight the most suitable options.</b>"),
+                                                  The tool will highlight the most suitable options.<br> Check out our explainer video <a href="https://youtu.be/TxUeXUecZIw">here</a>.</b>'),
                                              align = "center"),
                                    br()
                             )),
@@ -81,8 +81,6 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('Bernard, René (concept); Bobrov, Evgeny (concept); Riedel, Nico (concept, technical implementation; Weissgerber, Tracey (concept)'),
-                                   helpText('Contact address:'),
                                    helpText('Last update: 25.06.2019')
                             )
                           )
@@ -90,31 +88,31 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Scenarios", value = "tabScenarios",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://bihealth.org/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
                             ),
                             column(width = 9,
-                                   h1(HTML("FIDDLE - <font color=\"#AA1C7D\"><b> Fi</b></font>le
-                                           <font color=\"#AA1C7D\"><b> D</b></font>rawer
-                                           <font color=\"#AA1C7D\"><b> D</b></font>ata
-                                           <font color=\"#AA1C7D\"><b> L</b></font>iberation
-                                           <font color=\"#AA1C7D\"><b> E</b></font>ffort"), align = "center"),
+                                   h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
+                                           <font color=\"#AA1C7D\"><b> d</b></font>rawer
+                                           <font color=\"#AA1C7D\"><b> d</b></font>ata
+                                           <font color=\"#AA1C7D\"><b> l</b></font>iberation
+                                           <font color=\"#AA1C7D\"><b> e</b></font>ffort"), align = "center"),
                                    h4("Where and how to publish null / neutral results?", align = "center"),
                                    br(),
-                                   wellPanel(HTML("<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
+                                   wellPanel(HTML('<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
                                                   that is often difficult to publish in traditional journals (i.e. null or neutral results, datasets, etc.).
                                                   Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
-                                                  The tool will highlight the most suitable options.</b>"),
+                                                  The tool will highlight the most suitable options.<br> Check out our explainer video <a href="https://youtu.be/TxUeXUecZIw">here</a>.</b>'),
                                              align = "center"),
                                    br()
                             )),
                           fluidRow(
                             column(3,
                                    wellPanel(
-                                     h4("Why are your data in the file drawer?"),
-                                     radioButtons('scenario', 'Scenarios',
+                                     h4("Scenarios"),
+                                     radioButtons('scenario', 'Why are your data in the file drawer?',
                                                  c("I don't have enough time to prepare a publication",
                                                    "My experiment or dataset is incomplete",
-                                                   "I have data that may be useful to others, but don't have time to analyze everything",
+                                                   "I have data that may be useful to others, but am not able to analyze everything",
                                                    "I have neutral or null results from a small, underpowered study or an exploratory study",
                                                    "I have neutral or null results from a large, adequately powered study",
                                                    "My study is completed, but the findings aren't novel or exciting",
@@ -122,7 +120,6 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
                                                    "I don't have funding to pay for publication charges",
                                                    "None of these describe my situation - show me the table of all options"),
                                                  selected = "None of these describe my situation - show me the table of all options"),
-                                     helpText('Go back to the options version: '),
                                     actionButton('buttonToOptions', 'Back to options')
                                    ),
                                    tags$a(href=url_twitter, "Tweet", class="twitter-share-button"),
@@ -135,12 +132,60 @@ ui <- navbarPage("FIDDLE", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('Bernard, René (concept); Bobrov, Evgeny (concept); Riedel, Nico (concept, technical implementation; Weissgerber, Tracey (concept)'),
-                                   helpText('Contact address:'),
                                    helpText('Last update: 25.06.2019')
                             )
                           )
-                 )
+                 ),
+                 tabPanel("About", value = "tabAbout",
+                          fluidRow(
+                            column(width = 3,
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
+                            ),
+                            column(width = 9,
+                                   h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
+                                           <font color=\"#AA1C7D\"><b> d</b></font>rawer
+                                           <font color=\"#AA1C7D\"><b> d</b></font>ata
+                                           <font color=\"#AA1C7D\"><b> l</b></font>iberation
+                                           <font color=\"#AA1C7D\"><b> e</b></font>ffort"), align = "center"),
+                                   h4("Where and how to publish null / neutral results?", align = "center"),
+                                   br(),
+                                   wellPanel(HTML('<b>This “match-making” tool helps you to identify alternate ways of publishing information from well-designed experiments
+                                                  that is often difficult to publish in traditional journals (i.e. null or neutral results, datasets, etc.).
+                                                  Choose the criteria that are most relevant to you, or choose the scenario that best reflects your situation.
+                                                  The tool will highlight the most suitable options.<br> Check out our explainer video <a href="https://youtu.be/TxUeXUecZIw">here</a>.</b>'),
+                                             align = "center"),
+                                   br()
+                            )),
+                          fluidRow(
+                            column(3,
+                                   actionButton('buttonToOptions2', 'Back to options'),
+                                   actionButton('buttonToScenarios2', 'Back to scenarios')
+                            ),
+                            column(9,
+                                   h2("About"),
+                                   br(),
+                                   h4("Contributors"),
+                                   helpText('Bernard, René (concept); Bobrov, Evgeny (concept); Riedel, Nico (concept, technical implementation); Weissgerber, Tracey (concept)'),
+                                   br(),
+                                   h4('Contact address'),
+                                   helpText('fiddle@bihealth.de'),
+                                   br(),
+                                   h4("Publication"),
+                                   helpText(a(href = 'https://osf.io/6mcu3/', 'https://osf.io/6mcu3/')),
+                                   br(),
+                                   h4('Source code'),
+                                   helpText(a(href = 'https://github.com/quest-bih/FIDDLE', 'https://github.com/quest-bih/FIDDLE')),
+                                   br(),
+                                   helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
+                                            visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
+                                   helpText('Last update: 25.06.2019')
+                            )
+                          )
+                 )#,
+                 #tabPanel("Tutorial", value = "tabTutorial",
+                 #         h2("Tutorial video"),
+                 #         wellPanel(HTML("<video controls='controls' height='288' width='400'><source src='test.mp4' type='video/mp4' /></video>"))
+                 #)
 )
 
 
@@ -203,6 +248,18 @@ server <- function(input, output, session) {
                       selected = "tabOptions")
   })
 
+  observeEvent(input$buttonToScenarios2, {
+    updateTabsetPanel(session, "navbarTabs",
+                      selected = "tabScenarios")
+  })
+
+  observeEvent(input$buttonToOptions2, {
+    updateTabsetPanel(session, "navbarTabs",
+                      selected = "tabOptions")
+  })
+
+
+  write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)
