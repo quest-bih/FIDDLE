@@ -23,7 +23,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 106, width = 280),href="https://www.bihealth.org/quest-center/")
                             ),
                             column(width = 9,
                                    h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
