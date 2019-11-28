@@ -50,14 +50,17 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                                     "stand-alone finding or results from a small study",
                                                     "results from a full-scale study",
                                                     "rejected manuscript")),
-                                     radioButtons('Q2', 'Money I have to cover publication cost (in €)',
+                                     radioButtons('Q2', 'Money I have to cover publication cost',
                                                   c("0",
-                                                    "up to 1000",
-                                                    "up to 2000"), selected = "up to 2000"),
+                                                    "up to 1000 EUR/1100 US$",
+                                                    "up to 2000 EUR/2200 US$"), selected = "up to 2000 EUR/2200 US$"),
                                      checkboxGroupInput('Q3', 'I want the outcome to be indexed in',
                                                         c("Pubmed",
-                                                          "Google scholar",
-                                                          "Google"), selected = "Google"),
+                                                          "Pubmed Central",
+                                                          "Web of Science",
+                                                          "Scopus",
+                                                          "CrossRef",
+                                                          "Google scholar"), selected = c()),
                                      radioButtons('Q4', 'I want my outcome to be peer-reviewed',
                                                   c("any",
                                                     "yes",
@@ -88,7 +91,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Scenarios", value = "tabScenarios",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 106, width = 280),href="https://www.bihealth.org/quest-center/")
                             ),
                             column(width = 9,
                                    h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
@@ -139,7 +142,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("About", value = "tabAbout",
                           fluidRow(
                             column(width = 3,
-                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 183, width = 280),href="https://www.bihealth.org/quest-center/")
+                                   tags$a(img(src = "Quest_Wortmarke_rgb.png", height = 106, width = 280),href="https://www.bihealth.org/quest-center/")
                             ),
                             column(width = 9,
                                    h1(HTML(" <img src=\"fiddle_logo.png\" width=\"111\" height=\"44\">  - <font color=\"#AA1C7D\"><b> fi</b></font>le
@@ -175,6 +178,9 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                    br(),
                                    h4('Source code'),
                                    helpText(a(href = 'https://github.com/quest-bih/FIDDLE', 'https://github.com/quest-bih/FIDDLE')),
+                                   br(),
+                                   h4('Research Resource Identifier (RRID) reference'),
+                                   helpText('fiddle, RRID:SCR_017327'),
                                    br(),
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
@@ -259,7 +265,7 @@ server <- function(input, output, session) {
   })
 
 
-  write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
+  #write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)

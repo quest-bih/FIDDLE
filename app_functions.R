@@ -57,18 +57,30 @@ set_chosen_columns_2 <- function(table, Q1, Q2, Q3, Q4, Q5)
   Q2_sel = NULL
   switch(Q2,
          "0" = {Q2_sel = c(1, 3)},
-         "up to 1000" = {Q2_sel = c(1, 2, 3, 5)},
-         "up to 2000" = {Q2_sel = c(1, 2, 3, 4, 5, 6)}
+         "up to 1000 EUR/1100 US$" = {Q2_sel = c(1, 2, 3, 5)},
+         "up to 2000 EUR/2200 US$" = {Q2_sel = c(1, 2, 3, 4, 5, 6)}
   )
 
-  Q3_sel = NULL
+  Q3_sel = c(1, 2, 3, 4, 5, 6)
   if("Pubmed" %in% Q3) {
-    Q3_sel = c(3, 4, 5, 6)
-  } else if("Google scholar" %in% Q3) {
-    Q3_sel = c(2, 3, 4, 5, 6)
-  } else {
-    Q3_sel = c(1, 2, 3, 4, 5, 6)
+    Q3_sel = Q3_sel %>% intersect(c(4, 5, 6))
   }
+  if("Pubmed central" %in% Q3) {
+    Q3_sel = Q3_sel %>% intersect(c(2, 4, 5, 6))
+  }
+  if("Web of Science" %in% Q3) {
+    Q3_sel = Q3_sel %>% intersect(c(2, 4, 6))
+  }
+  if("Scopus" %in% Q3) {
+    Q3_sel = Q3_sel %>% intersect(c(2, 4, 6))
+  }
+  if("CrossRef" %in% Q3) {
+    Q3_sel = Q3_sel %>% intersect(c(2, 3, 4, 5, 6))
+  }
+  if("Google Scholar" %in% Q3) {
+    Q3_sel = Q3_sel %>% intersect(c(2, 3, 4, 5, 6))
+  }
+
 
   Q4_sel = NULL
   switch(Q4,
