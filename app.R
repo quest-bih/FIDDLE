@@ -17,8 +17,6 @@ null_results_table <- as.matrix(null_results_table)
 rownames(null_results_table) <- null_results_table[,1]
 null_results_table <- null_results_table[,-1]
 
-url_twitter <- "https://twitter.com/intent/tweet?text=Where%20and%20how%20to%20publish%20null%20results%3f&url=http://s-quest.bihealth.org:3838/fiddle/"
-
 ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
                           fluidRow(
@@ -71,9 +69,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                      helpText('If these options aren’t helpful, try our list of scenarios instead:'),
                                      actionButton('buttonToScenarios', 'Go to scenarios')
-                                   ),
-                                   tags$a(href=url_twitter, "Tweet", class="twitter-share-button"),
-                                   includeScript("http://platform.twitter.com/widgets.js")
+                                   )
 
 
                             ),
@@ -124,9 +120,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                                    "None of these describe my situation - show me the table of all options"),
                                                  selected = "None of these describe my situation - show me the table of all options"),
                                     actionButton('buttonToOptions', 'Back to options')
-                                   ),
-                                   tags$a(href=url_twitter, "Tweet", class="twitter-share-button"),
-                                   includeScript("http://platform.twitter.com/widgets.js")
+                                   )
                             ),
                             column(9,
                                    DT::dataTableOutput("table"),
