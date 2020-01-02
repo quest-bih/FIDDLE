@@ -17,6 +17,7 @@ null_results_table <- as.matrix(null_results_table)
 rownames(null_results_table) <- null_results_table[,1]
 null_results_table <- null_results_table[,-1]
 
+
 ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                  tabPanel("Options", value = "tabOptions",
                           fluidRow(
@@ -71,7 +72,6 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                      actionButton('buttonToScenarios', 'Go to scenarios')
                                    )
 
-
                             ),
                             column(9,
                                    DT::dataTableOutput("table2"),
@@ -80,7 +80,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('Last update: 25.06.2019')
+                                   helpText('fiddle version 2, last update: 31.12.2019')
                             )
                           )
                  ),
@@ -129,7 +129,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('Last update: 25.06.2019')
+                                   helpText('fiddle version 2, last update: 31.12.2019')
                             )
                           )
                  ),
@@ -178,7 +178,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                    br(),
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('Last update: 25.06.2019')
+                                   helpText('fiddle version 2, last update: 31.12.2019')
                             )
                           )
                  )#,
@@ -259,7 +259,7 @@ server <- function(input, output, session) {
   })
 
 
-  #write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
+  write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)
