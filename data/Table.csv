@@ -8,13 +8,13 @@ Time to publication;immediate;typically 1-3 months;immediate;typically 1-4 month
 Recognition;citations of the dataset;citations of article, article can be listed in CV (future handling of such articles is open);citations of article, article can be listed in CV (not universally accepted at this point);citations of article, article can be listed in CV;citations of article, article can be listed in CV (not universally accepted at this point);citations of article, article can be listed in CV
 Publishing venue can have Impact Factor;no;yes;no;yes;no;yes
 Peer-review;no;peer-review;post-publication review possible;peer-review;peer-review;peer-review
-DOI;yes;yes;yes;yes;yes;yes
+<a href="https://www.doi.org/">DOI</a>;yes;yes;yes;yes;yes;yes
 Versioning;yes;no;yes;yes;yes;no
 Indexing:;;;;;;
-Pubmed;no;no;no;yes;yes;yes
-Pubmed Central;no;some;no;some;yes;yes
-Web of Science;no;some;no;most;no;yes
-Scopus;no;some;no;some;no;yes
-CrossRef;no;some;yes;some;yes;yes
-Google Scholar;no;yes;yes;yes;yes;yes
-Additional information;;integrated open data upload, reviewer compensation, often only one reviewer;;;;
+<a href="https://www.ncbi.nlm.nih.gov/pubmed">Pubmed</a>;no;no;no;yes;yes;yes
+<a href="https://www.ncbi.nlm.nih.gov/pmc/">Pubmed Central</a>;no;some;no;some;yes;yes
+<a href="http://wokinfo.com/">Web of Science</a>;no;some;no;most;no;yes
+<a href="https://www.scopus.com">Scopus</a>;no;some;no;some;no;yes
+<a href="https://www.crossref.org ">CrossRef</a>;no;some;yes;some;yes;yes
+<a href="https://scholar.google.com">Google Scholar</a>;no;yes;yes;yes;yes;yes
+Additional information;;integrated open data upload, reviewer compensation, often only one reviewer;preprint deposit accepted by large majority of journals and often offered as integral step in submission process (see <a href="https://www.sherpa.ac.uk/romeo/browse.php">SHERPA/ROMeO</a>) ;;;
