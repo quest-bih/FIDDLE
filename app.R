@@ -178,7 +178,7 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                    br(),
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
-                                   helpText('fiddle version 2, last update: 31.12.2019')
+                                   helpText('fiddle version 2, last update: 28.01.2019')
                             )
                           )
                  )#,
