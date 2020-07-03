@@ -77,6 +77,21 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                    DT::dataTableOutput("table2"),
 
                                    br(),
+                                   
+                                   p('Fiddle highlights platforms that publish research in many fields. 
+                                                  The creators of fiddle cannot perform comprehensive assessments of 
+                                                  all field-specific resources. Researchers who are looking for 
+                                                  field-specific data repositories are encouraged to consult curated 
+                                                  lists of field-specific repositories maintained by other organizations 
+                                                  (re3data, fairsharing.org, nature list).'),
+
+                                   p('*In either the aim & scope, editorial criteria or guide for authors section of the 
+                                   journal website, the journal must have explicit language stating that the journal 
+                                   welcomes or accepts manuscripts containing negative, null, or inconclusive results. 
+                                   The creators of fiddle can only assess what it posted on the journal website - 
+                                   they cannot determine whether editors and reviewers follow these policies in practice. 
+                                   The journals listed here publish research on many different topics; the creators of 
+                                   fiddle cannot perform comprehensive assessments of all field-specific journals.'),
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
@@ -126,6 +141,21 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
                                    DT::dataTableOutput("table"),
 
                                    br(),
+                                   
+                                   p('Fiddle highlights platforms that publish research in many fields. 
+                                                  The creators of fiddle cannot perform comprehensive assessments of 
+                                                  all field-specific resources. Researchers who are looking for 
+                                                  field-specific data repositories are encouraged to consult curated 
+                                                  lists of field-specific repositories maintained by other organizations 
+                                                  (re3data, fairsharing.org, nature list).'),
+                                   
+                                   p('*In either the aim & scope, editorial criteria or guide for authors section of the 
+                                   journal website, the journal must have explicit language stating that the journal 
+                                   welcomes or accepts manuscripts containing negative, null, or inconclusive results. 
+                                   The creators of fiddle can only assess what it posted on the journal website - 
+                                   they cannot determine whether editors and reviewers follow these policies in practice. 
+                                   The journals listed here publish research on many different topics; the creators of 
+                                   fiddle cannot perform comprehensive assessments of all field-specific journals.'),
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
@@ -259,7 +289,7 @@ server <- function(input, output, session) {
   })
 
 
-  write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
+  #write(paste0("App visit at: ", Sys.time()), "/var/log/shiny-server/visitors_fiddle.txt", append = TRUE)
 }
 
 shinyApp(ui, server)
