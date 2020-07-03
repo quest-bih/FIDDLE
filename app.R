@@ -78,20 +78,22 @@ ui <- navbarPage("fiddle", theme = shinytheme("flatly"), id = "navbarTabs",
 
                                    br(),
                                    
-                                   p('Fiddle highlights platforms that publish research in many fields. 
-                                                  The creators of fiddle cannot perform comprehensive assessments of 
-                                                  all field-specific resources. Researchers who are looking for 
-                                                  field-specific data repositories are encouraged to consult curated 
-                                                  lists of field-specific repositories maintained by other organizations 
-                                                  (re3data, fairsharing.org, nature list).'),
+                                   p(HTML('<i>fiddle</i> highlights platforms that publish research in many fields. 
+                                          The creators of <i>fiddle</i> cannot perform comprehensive assessments of 
+                                          all field-specific resources. Researchers who are looking for 
+                                          field-specific data repositories are encouraged to consult curated 
+                                          lists of field-specific repositories maintained by other organizations 
+                                          (<a href="https://www.re3data.org/">re3data</a>, 
+                                          <a href="https://fairsharing.org/">fairsharing.org</a>, 
+                                          or <a href="https://www.nature.com/sdata/policies/repositories">Nature’s list</a>).')),
 
-                                   p('*In either the aim & scope, editorial criteria or guide for authors section of the 
+                                   p(HTML('*Criteria: In either the aim & scope, editorial criteria or guide for authors section of the 
                                    journal website, the journal must have explicit language stating that the journal 
                                    welcomes or accepts manuscripts containing negative, null, or inconclusive results. 
-                                   The creators of fiddle can only assess what it posted on the journal website - 
+                                   The creators of <i>fiddle</i> can only assess what it posted on the journal website - 
                                    they cannot determine whether editors and reviewers follow these policies in practice. 
                                    The journals listed here publish research on many different topics; the creators of 
-                                   fiddle cannot perform comprehensive assessments of all field-specific journals.'),
+                                   <i>fiddle</i> cannot perform comprehensive assessments of all field-specific journals.')),
 
                                    helpText('This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license,
                                             visit ',a(href = 'https://creativecommons.org/licenses/by-sa/3.0/', 'https://creativecommons.org/licenses/by-sa/3.0/')),
